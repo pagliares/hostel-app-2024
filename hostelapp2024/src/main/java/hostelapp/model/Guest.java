@@ -4,6 +4,8 @@ public class Guest {
     private String name;
     private String lastName;
 
+    private Address address;
+
     public Guest(){
         this(null);
     }
@@ -33,6 +35,14 @@ public class Guest {
         this.lastName = lastName;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public static void main(String[] args) {
         Guest florentino = new Guest();
         Guest fermina = new Guest("Fermina");
@@ -46,6 +56,16 @@ public class Guest {
 
         System.out.println("Dados do hospede..." + gregorio.getName() + " "
                 + gregorio.getLastName());
+
+        Address endereco =
+                new Address("Rua Coronel Manoel Teixeira", "33678-000", "MG");
+
+        endereco.setCity("Alfenas");
+
+        gregorio.setAddress(endereco);
+
+        System.out.println("Dados do hospede..." + gregorio.getName() + " "
+                + gregorio.getLastName() + " " + gregorio.getAddress().getCity());
 
     }
 }
